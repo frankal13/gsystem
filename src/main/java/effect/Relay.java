@@ -4,8 +4,8 @@ public class Relay {
 	// 0000 C000 OCOO CC00 0000 COCO OCCO CCC0 000C COOC OCOC CCOC 00CC COCC OCCC
 	// CCCC
 
-	private String[] VALUES = { "0000", "C000", "OCOO", "CC00", "0000", "COCO", "OCCO", "CCC0", "000C", "COOC", "OCOC",
-			"CCOC", "00CC", "COCC", "OCCC", "CCCC" };
+	private String[] VALUES = { "OOOO", "COOO", "OCOO", "CCOO", "OOOO", "COCO", "OCCO", "CCCO", "OOOC", "COOC", "OCOC",
+			"CCOC", "OOCC", "COCC", "OCCC", "CCCC" };
 
 	private static final int RELAY_OFFSET = 0x2e;
 	private String ra;
