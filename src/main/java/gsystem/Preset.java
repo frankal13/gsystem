@@ -67,7 +67,6 @@ public class Preset {
 
 		byte[] datatFromfirstPatchName = prsContent.getFromFirstPatchName();
 
-//		tempo.set(xtra);
 		loops.set(datatFromfirstPatchName);
 		routing.set(datatFromfirstPatchName);
 		boost.set(datatFromfirstPatchName);

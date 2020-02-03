@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import effect.BYTES;
-import filereader.Reader;
 
 /**
  * The prsContent byte[] starts with the patch name
@@ -34,22 +33,21 @@ public class PRSContent {
 		setName();
 	}
 
-	public PRSContent(String prsFilePath) throws IOException {
-		byte[] fileContent = Reader.readFile(prsFilePath);
+	public PRSContent(byte[] fileContent) throws IOException {
 		set(fileContent);
 		this.bank = 0;
 		this.number = 0;
 		setName();
 	}
 
-	public PRSContent(String prsFilePath, int bank, int number) throws IOException {
-		byte[] fileContent = Reader.readFile(prsFilePath);
-		set(fileContent);
-		this.bank = bank;
-		this.number = number;
-		setName();
-	}
-
+//	public PRSContent(String prsFilePath, int bank, int number) throws IOException {
+//		byte[] fileContent = FileUtil.readFile(prsFilePath);
+//		set(fileContent);
+//		this.bank = bank;
+//		this.number = number;
+//		setName();
+//	}
+//
 	public int getBank() {
 		return bank;
 	}

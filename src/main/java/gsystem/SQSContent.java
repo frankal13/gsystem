@@ -1,12 +1,13 @@
 package gsystem;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import effect.BYTES;
-import filereader.Reader;
 
 public class SQSContent {
 
@@ -48,7 +49,7 @@ public class SQSContent {
 	}
 
 	public void write2Bytes(int offset) throws IOException {
-		Reader.writeFile("c://temp//effects//out.txt", PRSContent
+		Files.write(Paths.get("c://temp//out.txt"), PRSContent
 				.twoBytes2Byte(Arrays.copyOfRange(sqsContentFirstPatch, offset, sqsContentFirstPatch.length)));
 	}
 

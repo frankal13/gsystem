@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import filereader.Reader;
-
 /*
 compon	2a5a 01	0x5a
 filton	2a96 01	0x96
@@ -30,20 +28,15 @@ eqon	2d24 01 0x324
  */
 public class Effect {
 
-	private static final int OFFSET_FILE_NAME_LENGTH = 0x31c;
-	private static final int OFFSET_PATCH_NAME_TO_DATA = 0; // -24;
-
 	private EffectTemplate effectTemplate;
 	private SubEffectTemplate subEffectTemplate;
 	private List<Parameter> parameters;
 
-	private Reader reader;
 	private boolean isEnabled;
 
 	public Effect(EffectTemplate effectTemplate) {
 		this.isEnabled = false;
 		this.effectTemplate = effectTemplate;
-		reader = new Reader();
 
 	}
 
@@ -95,7 +88,7 @@ public class Effect {
 	}
 
 	private int getOffsetData(byte[] prsContent) {
-		int offsetStart = effectTemplate.getEffectOffset() + OFFSET_PATCH_NAME_TO_DATA;
+		int offsetStart = effectTemplate.getEffectOffset();
 		return offsetStart;
 	}
 
