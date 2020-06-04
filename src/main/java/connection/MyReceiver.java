@@ -1,4 +1,4 @@
-package midi;
+package connection;
 
 import javax.sound.midi.MidiMessage;
 import javax.sound.midi.Receiver;

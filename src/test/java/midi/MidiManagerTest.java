@@ -10,6 +10,8 @@ import javax.sound.midi.ShortMessage;
 
 import org.junit.Test;
 
+import connection.MidiManager;
+
 public class MidiManagerTest {
 
 	@Test

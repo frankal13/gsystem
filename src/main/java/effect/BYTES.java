@@ -5,9 +5,19 @@ import java.util.Arrays;
 public class BYTES {
 
 	public static int number(byte[] data, int offset, int length) {
+		if (length == 1)
+			return one(data, offset);
 		if (length == 2)
 			return two(data, offset);
-		return four(data, offset);
+		if (length == 4)
+			return four(data, offset);
+		if (length == 6)
+			return six(data, offset);
+		throw new RuntimeException("Wrong length");
+	}
+
+	public static int six(byte[] data, int offset) {
+		return four(data, offset) * 256 + two(data, offset + 4);
 	}
 
 	public static int four(byte[] data, int offset) {
@@ -16,6 +26,10 @@ public class BYTES {
 
 	public static int two(byte[] data, int offset) {
 		return data[offset] * 16 + data[offset + 1];
+	}
+
+	public static int one(byte[] data, int offset) {
+		return data[offset];
 	}
 
 	public static int twoFull(byte[] data, int offset) {

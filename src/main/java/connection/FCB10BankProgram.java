@@ -1,4 +1,4 @@
-package midi;
+package connection;
 
 public class FCB10BankProgram {
 

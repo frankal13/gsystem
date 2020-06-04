@@ -12,6 +12,9 @@ import javax.sound.midi.MidiUnavailableException;
 
 import org.junit.Test;
 
+import connection.FCB1010;
+import connection.FCB10BankProgram;
+
 public class FCB1010Test {
 
 	@Test

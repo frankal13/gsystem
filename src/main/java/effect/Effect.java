@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,12 +31,8 @@ public class Effect {
 	private SubEffectTemplate subEffectTemplate;
 	private List<Parameter> parameters;
 
-	private boolean isEnabled;
-
 	public Effect(EffectTemplate effectTemplate) {
-		this.isEnabled = false;
 		this.effectTemplate = effectTemplate;
-
 	}
 
 	public void show() {
@@ -72,19 +67,7 @@ public class Effect {
 	}
 
 	private void setParameters(byte[] effectPrsContent) {
-		parameters = new ArrayList<Parameter>();
-		for (ParameterTemplate pt : subEffectTemplate.getParameterTemplates()) {
-			Parameter p = new Parameter(pt.getName());
-			p.set(effectPrsContent, pt.getOffset(), pt.getLengthInBytes(), pt.getDelta(), pt.getValueList());
-			parameters.add(p);
-			if (p.getName().equals("Enable"))
-				isEnabled = p.getValue().equals("On");
-		}
-//		for (int i = 0; i < 80; i++) {
-//			Parameter p = new Parameter(String.format("%d", 2 * i));
-//			p.set(effectPrsContent, 2 * i, 2);
-//			parameters.add(p);
-//		}
+		parameters = subEffectTemplate.fill(effectPrsContent);
 	}
 
 	private int getOffsetData(byte[] prsContent) {
@@ -119,7 +102,7 @@ public class Effect {
 	}
 
 	public boolean isEnabled() {
-		return isEnabled;
+		return subEffectTemplate.isEnabled();
 	}
 
 }
